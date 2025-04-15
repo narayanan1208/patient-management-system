@@ -21,7 +21,6 @@ export async function POST(req: Request) {
     if (blobFile && fileName) {
       const fileObject = new File([await blobFile.arrayBuffer()], fileName);
       file = await storage.createFile(BUCKET_ID!, ID.unique(), fileObject);
-      console.log("Uploaded file:", file);
     }
 
     if (!file?.$id) {
